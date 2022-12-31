@@ -463,7 +463,7 @@ parser.add_argument("-head","--head_morse",help='Head Movement Morse Code (defau
 parser.add_argument("-eyehead","--eye_head_morse",help='Eye Blink + Head Movement Morse Code (default: False)',type=str,default=False)
 
 parser.add_argument("-c","--cartoon",help='Cartoonize your frame (default: False)',type=str,default=False)
-parser.add_argument("-b","--batch_size",help='Batch-Size of Diffusion function (default: 3)',type=int,default=1)
+parser.add_argument("-b","--batch_size",help='Batch-Size of Diffusion function (default: 1)',type=int,default=1)
 parser.add_argument("-img_h","--img_height",help='Image height required in your Diffusion function (default: 512)',type=int,default=512)
 parser.add_argument("-img_w","--img_width",help='Image weight required in your Diffusion function (default: 512)',type=int,default=512)
 parser.add_argument("-wc","--webcam_port",help='Webcam Port (default: 0)',type=int,default=0)
