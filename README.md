@@ -1,13 +1,14 @@
 # Morse-Diffusion
 
-This project aims to help people with various hand-termor disabilties as they wouldn't be able to utilize an entire keyboard, when instead Morse Code is more suited. 
+This project aims to help people with various hand-tremor disabilties as they wouldn't be able to utilize an entire keyboard, when instead one of the adaptive tools used is Morse Code as it's a single-switch alternative. 
 In that respect, Morse Diffusion uses Morse Code to generate Art via the Keras Stable Diffusion API.
+
 
 ### This is done in 3 ways-
 
 #### 1) Typing Morse Code
 
-Here, the user can type the prompt with Morse Code and the script generates the corresponding images via the Diffusion API
+Here, the user can type the prompt with Morse Code and the script generates the corresponding images via the Diffusion API. For people with spinal muscle atrophy, they can't use the below methods well, so this would be better alternative.
 
 #### 2) Head Movements Morse Code
 
@@ -47,6 +48,9 @@ Often, head movements can get tiring for longer sequences, which is why here, th
 * Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
 * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+
+#### *0) Yes, Voice (But someone had already implemented a good Whisper in Hugging Face, so didn't want to do the same)*
+
 
 ## Examples!
 
