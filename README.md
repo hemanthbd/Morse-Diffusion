@@ -42,11 +42,11 @@ Often, head movements can get tiring for longer sequences, which is why here, th
 
 * Longer Pause Blink enters .(Dah)
 
-* Up remove the previous Dit/Dah
+* Head Up remove the previous Dit/Dah
 
-* Down (Short) enters the respective letter after completing the Morse Sequence for each letter
+* Head Down (Short) enters the respective letter after completing the Morse Sequence for each letter
 
-* Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
+* Head Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
 * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
 ```
