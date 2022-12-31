@@ -118,9 +118,10 @@ py main.py -eyehead True --head_morse False
 ```
 
 ### TO DO
-    * [ ] Can pop out previous dit/dah of current letter but not entire previous letter as frame-rate drops, so need to fix that
-    * [ ] Head Movement sensitivity control w.r.t frame-rate
-    * [ ] Streamlit? this into a GUI with parameters to control on-fly
+-  [ ]  Can pop out previous dit/dah of current letter but not entire previous letter as frame-rate drops, so need to fix that
+-  [ ]  Head Movement sensitivity control w.r.t frame-rate
+-  [ ]  Streamlit? this into a GUI with parameters to control on-fly
+-  [ ]  Colab integration
     
     
     
