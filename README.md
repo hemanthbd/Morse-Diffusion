@@ -15,20 +15,21 @@ Here, the user can type the prompt with Morse Code and the script generates the 
 Generally, even the above way could prove to be cumbersome to many who can't use their hand-motor functions well, in that effect, they could make use of the movements of their head to convey the same morse code prompt, which will then generate images similarly.
 
 ##### Instructions:
-
+```
 * Moving your head- 
 
-* Left enters .(Dit)
+  * Left enters .(Dit)
 
-* Right enters .(Dah)
+  * Right enters .(Dah)
 
-* Up remove the previous Dit/Dah
+  * Up remove the previous Dit/Dah
 
-* Down (Short) enters the respective letter after completing the Morse Sequence for each letter
+  * Down (Short) enters the respective letter after completing the Morse Sequence for each letter
 
-* Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
+  * Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
-* Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+  * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+```
 
 #### 3) Eye Blinking + Head Movements Morse Code
 
@@ -36,7 +37,7 @@ Often, head movements can get tiring for longer sequences, which is why here, th
 
 ##### Instructions:
 
-
+```
 * Short Pause Blink enters .(Dit)
 
 * Longer Pause Blink enters .(Dah)
@@ -48,6 +49,7 @@ Often, head movements can get tiring for longer sequences, which is why here, th
 * Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
 * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+```
 
 #### *0) Yes, Voice (But someone had already implemented a good Whisper in Hugging Face, so didn't want to do the same)*
 
