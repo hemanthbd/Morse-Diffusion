@@ -272,8 +272,6 @@ def head_morse(cartoonize="False",webcam_port=0):
                         pass
                 
 
-                if len(prompt_inter.strip())>0:
-                    print(prompt_inter)
 
                 cv2.putText(frame, ''.join(prompt_final), (40, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
@@ -316,7 +314,7 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
     flag3=0
     flag4=0
     satisfy=0
-    pts = deque(maxlen=512)
+    blink_pause_tracker = deque(maxlen=512)
     webcam = cv2.VideoCapture(webcam_port)
 
     mp_face_mesh = mp.solutions.face_mesh
@@ -338,7 +336,7 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
         face_3d = []
         face_2d = []
         landmark_lst = [33, 263, 1,61, 291, 199]
-        # Draw the face mesh annotations on the frame.
+
         frame.flags.writeable = True
         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         if results.multi_face_landmarks:
@@ -368,30 +366,30 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
                 if ear < 0.20: 
 
                     flag+=1
-                    pts.appendleft(flag)
+                    blink_pause_tracker.appendleft(flag)
 
                 else:
                     flag=0
                     flag2+=1
-                    pts.appendleft(flag)
+                    blink_pause_tracker.appendleft(flag)
             
             
                 #print("FLag",flag)
                 #print("Flag2",flag2)
 
 
-                for i in range(1, len(pts)):
+                for i in range(1, len(blink_pause_tracker)):
                     
-                    if pts[i] > pts[i - 1]:
+                    if blink_pause_tracker[i] > blink_pause_tracker[i - 1]:
 
-                        if pts[i] > 8 and pts[i] < 30:
+                        if blink_pause_tracker[i] > 8 and blink_pause_tracker[i] < 30:
                             prompt_final.append("-")
-                            pts = deque(maxlen=512)
+                            blink_pause_tracker = deque(maxlen=512)
                             break
-                        elif pts[i] > 3 and pts[i] < 8:
+                        elif blink_pause_tracker[i] > 3 and blink_pause_tracker[i] < 8:
 
                             prompt_final.append(".")
-                            pts = deque(maxlen=512)
+                            blink_pause_tracker = deque(maxlen=512)
                             break
 
                 if vert < -2:
