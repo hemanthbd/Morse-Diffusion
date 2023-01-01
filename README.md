@@ -29,6 +29,8 @@ Generally, even the above way could prove to be cumbersome to many who can't use
   * Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
   * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+  
+  * Click ESC to exit at any time if not satisfied with the prompt, it will exit the application without triggering the API
 ```
 
 #### 3) Eye Blinking + Head Movements Morse Code
@@ -49,6 +51,8 @@ Often, head movements can get tiring for longer sequences, which is why here, th
 * Head Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
 * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+
+* Click ESC to exit at any time if not satisfied with the prompt, it will exit the application without triggering the API
 ```
 
 #### *0) Yes, Voice (But someone had already implemented a good Whisper in Hugging Face, so didn't want to do the same)*
