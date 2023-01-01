@@ -148,6 +148,7 @@ def head_morse(cartoonize="False",webcam_port=0):
     flag1 = 0
     flag2 = 0
     space_keep=0
+    satisfy = 0
     while webcam.isOpened():
         _, frame = webcam.read()
 
@@ -271,6 +272,9 @@ def head_morse(cartoonize="False",webcam_port=0):
                         pass
                 
 
+                if len(prompt_inter.strip())>0:
+                    print(prompt_inter)
+
                 cv2.putText(frame, ''.join(prompt_final), (40, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
                 cv2.putText(frame, prompt_inter, (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (128, 0, 128), 2)
@@ -285,6 +289,7 @@ def head_morse(cartoonize="False",webcam_port=0):
         cv2.imshow('Morse Head', frame)
 
         if cv2.waitKey(5) & 0xFF == 27:
+            satisfy = 1
             break
 
 
@@ -295,7 +300,7 @@ def head_morse(cartoonize="False",webcam_port=0):
     prompt_clean = prompt_inter.strip().replace(".", "")
 
     #print(prompt_clean)
-    return prompt_clean
+    return satisfy,prompt_clean
 
 
 def head_eye_morse(cartoonize="False",webcam_port=0):
@@ -310,7 +315,7 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
     flag2=0
     flag3=0
     flag4=0
-    cnt=0
+    satisfy=0
     pts = deque(maxlen=512)
     webcam = cv2.VideoCapture(webcam_port)
 
@@ -434,6 +439,7 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
                 cv2.putText(frame, ''.join(prompt_final), (40, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
                 cv2.putText(frame, prompt_inter, (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (128, 0, 128), 2)
+                
 
 
         cv2.putText(frame, "Short Blink: .(Dit)", (20, int(webcam.get(4)/2)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
@@ -445,6 +451,8 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
 
         cv2.imshow('Morse Eye + Head',frame)
         if cv2.waitKey(5) & 0xFF == 27:
+            satisfy = 1
+            
             break
     webcam.release()
     cv2.destroyAllWindows()
@@ -452,7 +460,7 @@ def head_eye_morse(cartoonize="False",webcam_port=0):
     prompt_clean = prompt_inter.strip().replace(".", "")
 
     #print(prompt_clean)
-    return prompt_clean
+    return satisfy,prompt_clean
 
 
 
@@ -463,7 +471,7 @@ parser.add_argument("-head","--head_morse",help='Head Movement Morse Code (defau
 parser.add_argument("-eyehead","--eye_head_morse",help='Eye Blink + Head Movement Morse Code (default: False)',type=str,default=False)
 
 parser.add_argument("-c","--cartoon",help='Cartoonize your frame (default: False)',type=str,default=False)
-parser.add_argument("-b","--batch_size",help='Batch-Size of Diffusion function (default: 1)',type=int,default=1)
+parser.add_argument("-b","--batch_size",help='Batch-Size of Diffusion function (default: 3)',type=int,default=1)
 parser.add_argument("-img_h","--img_height",help='Image height required in your Diffusion function (default: 512)',type=int,default=512)
 parser.add_argument("-img_w","--img_width",help='Image weight required in your Diffusion function (default: 512)',type=int,default=512)
 parser.add_argument("-wc","--webcam_port",help='Webcam Port (default: 0)',type=int,default=0)
@@ -485,23 +493,25 @@ if args.type:
 
 if args.eye_head_morse=="True":
 
-    prompt_clean = head_eye_morse(cartoonize=args.cartoon,webcam_port = args.webcam_port)
+    satisfy, prompt_clean = head_eye_morse(cartoonize=args.cartoon,webcam_port = args.webcam_port)
     print(prompt_clean)
     #fine_prompt = input("Are you fine with your prompt? (y/n) :")
 
     #if fine_prompt=='y':
     #    keras_stable_diffusion(prompt_clean,batch_size=args.batch_size,img_height=args.img_height,img_width=args.img_width) 
 
-    keras_stable_diffusion(prompt_clean,batch_size=args.batch_size,img_height=args.img_height,img_width=args.img_width) 
+    if satisfy==0:
+        keras_stable_diffusion(prompt_clean,batch_size=args.batch_size,img_height=args.img_height,img_width=args.img_width) 
 
 
 if args.head_morse=="True":
 
-    prompt_clean = head_morse(cartoonize=args.cartoon,webcam_port = args.webcam_port)
+    satisfy, prompt_clean = head_morse(cartoonize=args.cartoon,webcam_port = args.webcam_port)
     print(prompt_clean)
     #fine_prompt = input("Are you fine with your prompt? (y/n) :")
 
     #if fine_prompt=='y':
     #    keras_stable_diffusion(prompt_clean,batch_size=args.batch_size,img_height=args.img_height,img_width=args.img_width)
-    keras_stable_diffusion(prompt_clean,batch_size=args.batch_size,img_height=args.img_height,img_width=args.img_width)
+    if satisfy==0:
+        keras_stable_diffusion(prompt_clean,batch_size=args.batch_size,img_height=args.img_height,img_width=args.img_width)
        
