@@ -28,7 +28,7 @@ Generally, even the above way could prove to be cumbersome to many who can't use
 
   * Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
-  * Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+  ** IMPORTANT AFTER FINISHING Morse Coding the Prompt : Make sure to do .-.-.- Down (Left Right x3 Down(Short/Long)) , which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API. .-.-.- is a Full-Stop in Morse **
   
   * Click ESC to exit at any time if not satisfied with the prompt, it will exit the application without triggering the API
 ```
@@ -50,7 +50,7 @@ Often, head movements can get tiring for longer sequences, which is why here, th
 
 * Head Down (Long) enters Space ('\') between words (There will be a countdown from 40 till 'Space Entered!')
 
-* Make sure to do .-.-.- (Dot) after you completed the prompt, which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API.
+* MPORTANT AFTER FINISHING Morse Coding the Prompt : Make sure to do .-.-.- Down (Left Right x3 Down(Short/Long)) , which will close the webcam window and trigger the prompt to the Keras Stable Diffusion API. .-.-.- is a Full-Stop in Morse
 
 * Click ESC to exit at any time if not satisfied with the prompt, it will exit the application without triggering the API
 ```
